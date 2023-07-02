@@ -1,5 +1,8 @@
 import './sidebar.css'
 import {RssFeed , Chat, Videocam,Group,Bookmark,QuestionAnswer,Work,EventBusy} from '@material-ui/icons'
+// eslint-disable-next-line no-unused-vars
+import {User, Users} from '../../dummyData'
+import CloseFriend from '../closeFriend/CloseFriend';
 function Sidebar() {
     return ( <div className='sidebar'>
         <div className="sidebarWrapper">
@@ -44,22 +47,9 @@ function Sidebar() {
             <button className='sidebarButton'>ShowMore</button>
             <hr className='sidebarHr'/>
             <ul className="sidebarFriendList">
-                <li className="sidebarFriend">
-                    <img className='sidebarFriendImg' src="/assets/img/Image (2).png" alt="" />
-                    <span className='sidebarFriendName'>Minh Duy</span>
-                </li>
-                <li className="sidebarFriend">
-                    <img className='sidebarFriendImg' src="/assets/img/Image (2).png" alt="" />
-                    <span className='sidebarFriendName'>Minh Duy</span>
-                </li>
-                <li className="sidebarFriend">
-                    <img className='sidebarFriendImg' src="/assets/img/Image (2).png" alt="" />
-                    <span className='sidebarFriendName'>Minh Duy</span>
-                </li>
-                <li className="sidebarFriend">
-                    <img className='sidebarFriendImg' src="/assets/img/Image (2).png" alt="" />
-                    <span className='sidebarFriendName'>Minh Duy</span>
-                </li>
+                {Users.map (u => (
+                    <CloseFriend key={u.id} user={u} />
+                ))}
             </ul>
         </div>
      
