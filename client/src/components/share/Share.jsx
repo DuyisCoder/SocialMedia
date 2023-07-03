@@ -4,7 +4,7 @@ function Share() {
     return (<div className='share'>
             <div className="shareWrapper">
                 <div className="shareTop">
-                    <img className='shareProfileImg' src="/assets/img/Image (3).png" alt="" />
+                    <img className='shareProfileImg' src="/assets/img/Image3.png" alt="" />
                     <input type="text" placeholder="What's in your mind ?"  className='shareInput'/>
                 </div>
                 <hr className='shareHr'/>
