@@ -1,12 +1,24 @@
+/* eslint-disable no-unused-vars */
 import "./login.css";
-import { useRef } from "react";
+import { useContext, useRef } from "react";
+import { loginCall } from "../../apiCalls";
+import {AuthContext} from "../../context/AuthContext"
+import {CircularProgress} from '@material-ui/core'
 export default function Login() {
-  const email =useRef();
-  const password =useRef();
+  const emailRef =useRef();
+  const passwordRef =useRef();
+  const {user,isFetching,error,dispatch} = useContext(AuthContext)
+
+
   const handleClick = (e) =>{
     e.preventDefault()
-    console.log(email.current.value);
-  }
+    console.log(emailRef.current.value);
+    loginCall({
+      email:emailRef.current.value,
+      password:passwordRef.current.value
+    },dispatch);
+  };
+  console.log(user);
   return (
     <div className="login">
       <div className="loginWrapper">
@@ -22,21 +34,23 @@ export default function Login() {
               placeholder="Email" 
               type="email" 
               className="loginInput" 
-              ref={email} 
+              ref={emailRef} 
               required
             />
             <input 
               placeholder="Password"
               type="password" 
               className="loginInput" 
-              ref={password} 
+              ref={passwordRef} 
               required 
               minLength="6"
             />
-            <button className="loginButton">Log In</button>
+            <button className="loginButton" type="submit" disabled={isFetching}>
+              {isFetching ? <CircularProgress  color="white" size="20px"/> :"Log In"}
+              </button>
             <span className="loginForgot">Forgot Password?</span>
             <button className="loginRegisterButton">
-              Create a New Account
+            {isFetching ? <CircularProgress  color="white" size="20px" /> :"Create a New Account"}
             </button>
           </form>
         </div>

@@ -1,23 +1,23 @@
-import React from 'react';
-import Home from './pages/home/Home'
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-} from "react-router-dom";
+import React, { useContext } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import Home from './pages/home/Home';
 import Login from '../src/pages/login/Login';
-import Register from'../src/pages/register/Register'
-import Profile from './pages/profile/Profile'
+import Register from '../src/pages/register/Register';
+import Profile from './pages/profile/Profile';
+import { AuthContext } from './context/AuthContext';
+
 function App() {
+  const { user } = useContext(AuthContext);
+
   return (
-     <Router>
-       <Routes>
-        <Route exact path='/' element={<Home />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/register' element={<Register />} />
-        <Route path='/profile/:username' element={<Profile />} />
-       </Routes>
-      </Router>
+    <Router>
+      <Routes>
+        <Route path="/" element={user ? <Home /> : <Navigate to="/register" replace />} />
+        <Route path="/login" element={user ? <Navigate to="/" replace /> : <Login />} />
+        <Route path="/register" element={user ? <Navigate to="/" replace /> : <Register />} />
+        <Route path="/profile/:username" element={<Profile />} />
+      </Routes>
+    </Router>
   );
 }
 
