@@ -5,7 +5,7 @@ const INITIAL_STATE={
         _id:"64a190b10a80a54da75b444b",
         username:"duy1231",
         email:"duy122@gmail.com",
-        profilePicture:"img/Image1.png",
+        profilePicture:"person/Image1.png",
         coverPicture:"",
         isAdmin:false,
         followers:[],
@@ -18,7 +18,7 @@ const INITIAL_STATE={
 //     _id:"64a190b10a80a54da75b444b",
 //     username:"duy1231",
 //     email:"duy122@gmail.com",
-//     profilePicture:"img/Image1.png"
+//     profilePicture:person/Image1.png"
 //     coverPicture:"",
 //     isAdmin:false,
 //     followers:[],
