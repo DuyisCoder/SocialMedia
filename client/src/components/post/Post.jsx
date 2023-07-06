@@ -41,7 +41,8 @@ function Post({post}) {
                 <div className="postWrapper">
                     <div className="postTop">
                         <div className="postTopLeft">
-                           <Link to={`profile/${user.username}`}> 
+                        {/*`profile/${user.username}`*/}
+                           <Link to={"/profile/"+user.username}> 
                             <img  className="postProfileImg"src={user.profilePicture || PF+"person/NoAvt.jpeg"}alt="" />
                             </Link>
                             <span className="postUsername">{user.username}</span>

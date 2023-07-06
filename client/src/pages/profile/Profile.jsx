@@ -6,6 +6,7 @@ import Feed from "../../components/feed/Feed";
 import { useState,useEffect } from "react";
 import { useParams } from "react-router";
 import axios from 'axios'
+import {Link} from "react-router-dom"
 export default function Profile() {
   const PF=process.env.REACT_APP_PUBLIC_FOLDER
   const [user,setUser]=useState({})
@@ -32,6 +33,7 @@ export default function Profile() {
                 src={user.coverPicture || PF+"person/NoBg.png"}
                 alt=""
               />
+              
               <img
                 className="profileUserImg"
                 src={user.profilePicture || PF+"person/NoAvt.jpeg"}

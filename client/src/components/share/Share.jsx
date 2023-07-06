@@ -3,6 +3,8 @@ import './share.css'
 import {PermMedia,Label,Room,EmojiEmotions} from '@material-ui/icons'
 import { AuthContext } from '../../context/AuthContext';
 import axios from "axios"
+import { v4 as uuidv4 } from 'uuid';
+
 function Share() {
     const PF=process.env.REACT_APP_PUBLIC_FOLDER
 
@@ -21,9 +23,8 @@ function Share() {
           const data = new FormData();
           const fileName = file.name; // Date.now() +  nếu thì sẽ + thêm chuỗi thời gian khó lấy ra 
           data.append("file", file);
-          data.append("name", file.originalname);
+          data.append("name", fileName);
           newPost.img = fileName;
-
           try {
             await axios.post("/upload", data);
             console.log("Thành công");
