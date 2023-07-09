@@ -23,6 +23,9 @@ const INITIAL_STATE={
     // },
     isFetching:false,
     error:false,
+    // user:JSON.parse(localStorage.getItem("user")) || null,
+    // isFetching: false,
+    // error: false,
 }
 // :{
 //     _id:"64a190b10a80a54da75b444b",
